@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "autominer",
+  "version": "${version}",
+  "name": "Auto Miner",
+  "description": "Configurable client-side auto mining helper for Minecraft 1.21.8.",
+  "icon": "assets/autominer/icon.png",
+  "authors": [
+    "Codex&Aboba2022"
+  ],
+  "contact": {
+    "homepage": "https://mibombo-delta.vercel.app",
+    "sources": "https://github.com/dhytpodd-lab/Auto-Miner",
+    "issues": "https://github.com/dhytpodd-lab/Auto-Miner/issues"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.danik.autominer.AutoMinerClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21",
+    "fabric-api": "*",
+    "cloth-config": ">=19.0.147"
+  }
+}

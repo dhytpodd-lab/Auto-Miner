@@ -1,0 +1,11 @@
+{
+  "autominer.title": "Auto Miner",
+  "autominer.tab.dashboard": "Dashboard",
+  "autominer.tab.targets": "Targets",
+  "autominer.tab.behavior": "Behavior",
+  "autominer.tab.routing": "Routing",
+  "autominer.tab.safety": "Safety",
+  "autominer.tab.hud": "HUD",
+  "autominer.tab.keybinds": "Keybinds",
+  "autominer.tab.presets": "Presets"
+}
