@@ -1,91 +1,112 @@
-# Auto Miner Fabric Mod
+Auto Miner Fabric Mod
+Клиентский мод Fabric для Minecraft 1.21.8, ориентированный на настраиваемое автоматическое копание, с runtime-контроллером, GUI, HUD, пресетами, прокладкой пути, поиском целей и правилами безопасности.
 
-Client-side Fabric mod for Minecraft 1.21.8 focused on configurable auto-mining with a runtime controller, GUI, HUD, presets, pathing, target search, and safety rules.
+Стек
 
-## Stack
+Minecraft 1.21.8
 
-- Minecraft `1.21.8`
-- Fabric Loader `0.17.3`
-- Fabric API `0.136.0+1.21.8`
-- Cloth Config `19.0.147`
-- Java `21`
+Fabric Loader 0.17.3
 
-## Build
+Fabric API 0.136.0+1.21.8
 
-### Windows
+Cloth Config 19.0.147
 
-```powershell
+Java 21
+
+Сборка
+
+Windows
+
 .\gradlew.bat build
-```
 
-### macOS / Linux
+macOS / Linux
 
-```bash
 ./gradlew build
-```
 
-Resulting jar:
+Итоговый jar-файл:
 
-```text
 build/libs/autominer-1.0.0.jar
-```
 
-## Run In Dev
+Запуск в dev-режиме
 
-### Windows
+Windows
 
-```powershell
 .\gradlew.bat runClient
-```
 
-### macOS / Linux
+macOS / Linux
 
-```bash
 ./gradlew runClient
-```
 
-## Install
+Установка
 
-1. Install Java 21.
-2. Install Minecraft Fabric Loader `0.17.3` for `1.21.8`.
-3. Copy `build/libs/autominer-1.0.0.jar` into `.minecraft/mods`.
-4. Start the Fabric profile.
+Установите Java 21.
 
-## Main Controls
+Установите Minecraft Fabric Loader 0.17.3 для версии 1.21.8.
 
-- `` ` ``: Toggle mod
-- `P`: Pause / resume
-- `Right Shift`: Open GUI
-- `V`: Select block under crosshair as the only target
-- `B`: Add block under crosshair to targets
-- `N`: Remove block under crosshair from targets
-- `H`: Toggle HUD
-- `K`: Quick-save preset
-- `L`: Load active preset
-- `Delete`: Emergency stop
+Скопируйте build/libs/autominer-1.0.0.jar в папку .minecraft/mods.
 
-All keybinds are editable in the GUI and persisted to config.
+Запустите профиль Fabric.
 
-## Project Layout
+Основные клавиши управления
 
-- `src/main/java/dev/danik/autominer/core`: bootstrap and runtime wiring
-- `src/main/java/dev/danik/autominer/config`: JSON config model and manager
-- `src/main/java/dev/danik/autominer/input`: keybind definitions and manager
-- `src/main/java/dev/danik/autominer/mining`: controller, session state, mining executor, tools, inventory
-- `src/main/java/dev/danik/autominer/targeting`: target search, caching, candidate scoring
-- `src/main/java/dev/danik/autominer/navigation`: local path planning and waypoint walking
-- `src/main/java/dev/danik/autominer/safety`: stop/pause conditions and hazard checks
-- `src/main/java/dev/danik/autominer/gui`: multi-tab runtime GUI
-- `src/main/java/dev/danik/autominer/hud`: on-screen HUD renderer
-- `src/main/java/dev/danik/autominer/render`: target / area overlays
-- `src/main/java/dev/danik/autominer/preset`: built-in and user preset system
-- `src/main/java/dev/danik/autominer/util`: math, registry, color, block helpers
+`: включить/выключить мод
 
-## Extension Points
+P: пауза / продолжить
 
-- Add new targeting heuristics in `TargetSearchService`
-- Add richer navigation rules in `NavigationService`
-- Add more stop rules in `SafetyMonitor`
-- Add new runtime actions or automation states in `AutoMinerController`
-- Add GUI tabs or setting widgets in `AutoMinerScreen`
-- Add built-in profiles in `BuiltInPresets`
+Right Shift: открыть GUI
+
+V: выбрать блок под прицелом как единственную цель
+
+B: добавить блок под прицелом в список целей
+
+N: удалить блок под прицелом из списка целей
+
+H: включить/выключить HUD
+
+K: быстро сохранить пресет
+
+L: загрузить активный пресет
+
+Delete: аварийная остановка
+
+Все клавиши можно изменить в GUI, и они сохраняются в конфиге.
+
+Структура проекта
+
+src/main/java/dev/danik/autominer/core — загрузка мода и связывание runtime-логики
+
+src/main/java/dev/danik/autominer/config — JSON-модель конфига и менеджер конфигурации
+
+src/main/java/dev/danik/autominer/input — определения клавиш и менеджер ввода
+
+src/main/java/dev/danik/autominer/mining — контроллер, состояние сессии, исполнитель копания, инструменты, инвентарь
+
+src/main/java/dev/danik/autominer/targeting — поиск целей, кэширование, оценка кандидатов
+
+src/main/java/dev/danik/autominer/navigation — локальное планирование пути и перемещение по точкам
+
+src/main/java/dev/danik/autominer/safety — условия остановки/паузы и проверка опасностей
+
+src/main/java/dev/danik/autominer/gui — многовкладочный runtime-GUI
+
+src/main/java/dev/danik/autominer/hud — отрисовка HUD на экране
+
+src/main/java/dev/danik/autominer/render — оверлеи целей / области
+
+src/main/java/dev/danik/autominer/preset — встроенные и пользовательские пресеты
+
+src/main/java/dev/danik/autominer/util — математика, реестр, цвет, хелперы для блоков
+
+Точки расширения
+
+Добавляйте новые эвристики выбора целей в TargetSearchService
+
+Добавляйте более продвинутые правила навигации в NavigationService
+
+Добавляйте новые правила остановки в SafetyMonitor
+
+Добавляйте новые runtime-действия или состояния автоматизации в AutoMinerController
+
+Добавляйте вкладки GUI или виджеты настроек в AutoMinerScreen
+
+Добавляйте встроенные профили в BuiltInPresets
